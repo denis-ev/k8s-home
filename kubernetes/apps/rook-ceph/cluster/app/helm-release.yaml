@@ -44,24 +44,24 @@ spec:
         config:
           osdsPerDevice: "1"
         nodes:
-          - name: "k8s-worker-1"
+          - name: "kube101"
+            devices:
+              - name: "sda"
+              # - name: "sdc"
+              # - name: "sdd"
+          - name: "kube102"
             devices:
               - name: "sdb"
               # - name: "sdc"
               # - name: "sdd"
-          - name: "k8s-worker-2"
+          - name: "kube103"
             devices:
               - name: "sdb"
               # - name: "sdc"
               # - name: "sdd"
-          - name: "k8s-worker-3"
+          - name: "kube104"
             devices:
-              - name: "sdb"
-              # - name: "sdc"
-              # - name: "sdd"
-          - name: "k8s-worker-4"
-            devices:
-              - name: "sdb"
+              - name: "sda"
               # - name: "sdc"
               # - name: "sdd"
 

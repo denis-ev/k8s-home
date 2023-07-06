@@ -1,0 +1,19 @@
+---
+- name: Cluster Installation
+  hosts: localhost
+  connection: local
+  vars_files:
+    - defaults/main.yaml
+    - vars/config.yaml
+  tasks:
+    - name: Verify configuration
+      ansible.builtin.include_tasks: tasks/validation/main.yaml
+
+    - name: Template Sops configuration
+      ansible.builtin.include_tasks: tasks/sops/main.yaml
+
+    - name: Template Ansible configuration
+      ansible.builtin.include_tasks: tasks/ansible/main.yaml
+
+    - name: Template Kubernetes configuration
+      ansible.builtin.include_tasks: tasks/kubernetes/main.yaml

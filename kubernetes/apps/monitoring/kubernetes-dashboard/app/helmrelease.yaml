@@ -40,7 +40,8 @@ spec:
       enabled: true
       className: nginx
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-staging
+        external-dns.home.arpa/enabled: "true"
+        auth.home.arpa/enabled: "true"
         hajimari.io/icon: mdi:kubernetes
       hosts:
         - &host "kubernetes.${SECRET_DOMAIN}"

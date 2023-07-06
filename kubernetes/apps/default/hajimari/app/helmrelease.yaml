@@ -43,7 +43,13 @@ spec:
       namespaceSelector:
         matchNames:
           - default
+          - flux-system
+          - kube-system
+          - media
           - monitoring
+          - rook-ceph
+          - security
+          - selfhosted
     ingress:
       main:
         enabled: true

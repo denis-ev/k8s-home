@@ -1,0 +1,10 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ./namespace.yaml
+  - ./add-ons/dashboard/ks.yaml
+  - ./add-ons/direct-mount/ks.yaml
+  - ./cluster/ks.yaml
+  - ./operator/ks.yaml
+  - ./snapshot-controller/ks.yaml

@@ -65,6 +65,7 @@ spec:
           enabled: true
           className: nginx
           annotations:
+            auth.home.arpa/enabled: "true"
             hajimari.io/icon: simple-icons:cilium
           hosts:
             - &host "hubble.${SECRET_DOMAIN}"

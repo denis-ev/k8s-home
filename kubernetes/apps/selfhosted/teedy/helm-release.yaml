@@ -21,7 +21,6 @@ spec:
       repository: sismics/docs
       tag: v1.11
     env:
-      TZ: "America/New_York"
       DOCS_DEFAULT_LANGUAGE: eng
       DOCS_BASE_URL: "https://docs.${SECRET_DOMAIN}"
       DOCS_ADMIN_EMAIL_INIT: "ryan@ryanholt.net"

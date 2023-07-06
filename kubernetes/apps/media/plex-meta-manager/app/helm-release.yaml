@@ -36,7 +36,6 @@ spec:
       repository: docker.io/meisnate12/plex-meta-manager
       tag: v1.19.0
     env:
-      TZ: "America/New_York"
       PUID: "568"
       PGID: "568"
     command:

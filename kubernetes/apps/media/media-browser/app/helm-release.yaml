@@ -27,7 +27,6 @@ spec:
       tag: v2.23.0
 
     env:
-      TZ: "Australia/Perth"
       FB_DATABASE: "/config/filebrowser.db"
       FB_ROOT: "/data"
       FB_LOG: "stdout"

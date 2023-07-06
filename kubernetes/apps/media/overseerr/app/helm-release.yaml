@@ -26,7 +26,6 @@ spec:
       repository: ghcr.io/sct/overseerr
       tag: 1.33.0
     env:
-      TZ: "Australia/Perth"
       LOG_LEVEL: "info"
       PORT: &port 80
 

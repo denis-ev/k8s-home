@@ -33,7 +33,6 @@ spec:
       repository: ghcr.io/onedr0p/bazarr
       tag: 1.2.2@sha256:9656191a1347e44de7fc883912bb00d6a8d5c190dbd0dd77d5ba1ba075095b65
     env:
-      TZ: America/New_York
     service:
       main:
         ports:

@@ -29,8 +29,6 @@ spec:
     - name: ingress-nginx
       namespace: networking
   values:
-    env:
-      TZ: "${TIMEZONE}"
     extraArgs:
       - --enable-skip-login
       - --disable-settings-authorizer

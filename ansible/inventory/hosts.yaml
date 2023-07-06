@@ -1,0 +1,28 @@
+---
+kubernetes:
+  children:
+    master:
+      hosts:
+        kube001:
+          ansible_user: debian
+          ansible_host: 10.1.1.81
+        kube002:
+          ansible_user: debian
+          ansible_host: 10.1.1.82
+        kube003:
+          ansible_user: debian
+          ansible_host: 10.1.1.83
+    worker:
+      hosts:
+        kube101:
+          ansible_user: debian
+          ansible_host: 10.1.1.91
+        kube102:
+          ansible_user: debian
+          ansible_host: 10.1.1.92
+        kube103:
+          ansible_user: debian
+          ansible_host: 10.1.1.93
+        kube104:
+          ansible_user: debian
+          ansible_host: 10.1.1.94

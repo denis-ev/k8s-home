@@ -8,6 +8,7 @@ resources:
   - ./scheduledbackup.yaml
   - ./prometheusrule.yaml
   - ./service.yaml
+  - ./../app/secret.sops.yaml
 labels:
   - pairs:
       app.kubernetes.io/name: cloudnative-pg-cluster

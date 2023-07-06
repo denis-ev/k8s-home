@@ -61,8 +61,6 @@ spec:
         enabled: true
         ingressClassName: "nginx"
         annotations:
-          kubernetes.io/tls-acme: "true"
-          cert-manager.io/cluster-issuer: letsencrypt-production
           external-dns.home.arpa/enabled: "true"
         hosts:
           - host: &host "miniflux.${SECRET_DOMAIN}"
@@ -71,7 +69,6 @@ spec:
         tls:
           - hosts:
               - *host
-            secretName: tls.miniflux
 
     probes:
       liveness:

@@ -119,7 +119,7 @@ spec:
       ingressClassName: "nginx"
       dashboard:
         annotations:
-          cert-manager.io/cluster-issuer: letsencrypt-production
+          auth.home.arpa/enabled: "true"
           external-dns.home.arpa/enabled: "true"
           nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
         hosts:

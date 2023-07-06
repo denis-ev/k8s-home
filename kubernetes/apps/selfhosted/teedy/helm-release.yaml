@@ -43,10 +43,7 @@ spec:
         enabled: true
         ingressClassName: nginx
         annotations:
-          auth.home.arpa/enabled: "false"
           external-dns.home.arpa/enabled: "true"
-          kubernetes.io/tls-acme: "true"
-          cert-manager.io/cluster-issuer: letsencrypt-production
         hosts:
           - host: "docs.${SECRET_DOMAIN}"
             paths:
@@ -55,7 +52,6 @@ spec:
         tls:
           - hosts:
               - "docs.${SECRET_DOMAIN}"
-            secretName: tls.teedy
     persistence:
       data:
         enabled: true

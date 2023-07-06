@@ -71,7 +71,6 @@ spec:
         tls:
           - hosts:
               - *host
-            secretName: tls.prowlarr
 
       api:
         enabled: true
@@ -86,7 +85,6 @@ spec:
         tls:
           - hosts:
               - *host
-            secretName: tls.prowlarr
 
     podSecurityContext:
       runAsUser: 568

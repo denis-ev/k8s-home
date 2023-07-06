@@ -45,8 +45,6 @@ spec:
         ingressClassName: "nginx"
         annotations:
           external-dns.home.arpa/enabled: "true"
-          kubernetes.io/tls-acme: "true"
-          cert-manager.io/cluster-issuer: letsencrypt-production
           nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
         hosts:
           - host: &host "plex.${SECRET_DOMAIN}"
@@ -56,7 +54,6 @@ spec:
         tls:
           - hosts:
               - *host
-            secretName: tls.plex
 
     podSecurityContext:
       runAsUser: 568

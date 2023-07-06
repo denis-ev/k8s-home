@@ -25,14 +25,6 @@ metadata:
 spec:
   path: ./kubernetes/apps/db/cloudnative-pg/cluster
   prune: true
-  dependsOn:
-    - name: cluster-apps-rook-ceph-add-ons-dash
-    - name: cluster-apps-rook-ceph-add-ons-direct-mount
-    - name: cluster-apps-rook-ceph-app
-    - name: cluster-apps-rook-ceph-operator
-    - name: cluster-apps-rook-ceph-sc-base
-    - name: cluster-apps-rook-ceph-sc-config
-    - name: cluster-apps-rook-ceph-sc-crds
   sourceRef:
     kind: GitRepository
     name: home-kubernetes

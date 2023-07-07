@@ -42,6 +42,9 @@ spec:
       analytics:
         check_for_updates: false
         check_for_plugin_updates: false
+      server:
+        domain: grafana.${SECRET_DOMAIN}
+        root_url: "%(protocol)s://%(domain)s/"
     dashboardProviders:
       dashboardproviders.yaml:
         apiVersion: 1

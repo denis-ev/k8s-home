@@ -8,7 +8,7 @@ resources:
 configMapGenerator:
   - name: kyverno-dashboard
     files:
-      - kyverno-dashboard.json=https://raw.githubusercontent.com/kyverno/grafana-dashboard/master/grafana/dashboard.json
+      - kyverno-dashboard.json=https://raw.githubusercontent.com/kyverno/kyverno/main/charts/kyverno/grafana/dashboard.json
 generatorOptions:
   disableNameSuffixHash: true
   annotations:

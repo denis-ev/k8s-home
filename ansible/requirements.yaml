@@ -14,3 +14,6 @@ roles:
   - name: xanmanning.k3s
     src: https://github.com/PyratLabs/ansible-role-k3s.git
     version: v3.4.2
+  - name: dmotte.disable_ipv6
+    src: https://github.com/dmotte/ansible-role-disable-ipv6.git
+    version: "1.1.0"

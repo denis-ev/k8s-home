@@ -113,6 +113,14 @@
               fs.inotify.max_user_watches: 524288
               fs.inotify.max_user_instances: 8192
 
+    - name: Disable IPv6
+      ansible.builtin.include_role:
+        name: dmotte.disable_ipv6
+        public: true
+      vars:
+        ansible_become: true
+        reload_sysctl_if_changed: false
+
   handlers:
     - name: Reboot
       ansible.builtin.reboot:

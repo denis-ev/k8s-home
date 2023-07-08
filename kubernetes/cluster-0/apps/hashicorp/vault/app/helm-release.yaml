@@ -38,6 +38,6 @@ spec:
     ui:
       enabled: true
       ## TODO
-      # ingress.home.arpa/enabled: "external-auth"
+      # ingress.home.arpa/type: "external-auth"
     csi:
       enabled: false

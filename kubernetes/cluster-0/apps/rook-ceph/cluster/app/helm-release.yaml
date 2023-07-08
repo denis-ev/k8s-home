@@ -119,7 +119,7 @@ spec:
       ingressClassName: "nginx"
       dashboard:
         annotations:
-          ingress.home.arpa/enabled: "external-auth"
+          ingress.home.arpa/type: "external-auth"
           nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
         hosts:
           - host: &host "rook.${SECRET_DOMAIN}"

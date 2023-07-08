@@ -34,7 +34,7 @@ spec:
       enabled: true
       className: nginx
       annotations:
-        ingress.home.arpa/enabled: "external-auth"
+        ingress.home.arpa/type: "external-auth"
         hajimari.io/icon: sawtooth-wave
       hosts:
         - host: &host "gitops.${SECRET_DOMAIN}"

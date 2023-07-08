@@ -42,7 +42,7 @@ spec:
         enabled: true
         ingressClassName: "nginx"
         annotations:
-          ingress.home.arpa/enabled: "external"
+          ingress.home.arpa/type: "external"
           nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
         hosts:
           - host: &host "plex.${SECRET_DOMAIN}"

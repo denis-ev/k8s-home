@@ -416,10 +416,10 @@ By default this template will deploy a wildcard certificate with the Let's Encry
 1. Update the resources to use the production Let's Encrypt server:
 
     ```patch
-    diff --git a/kubernetes/apps/networking/ingress-nginx/app/helmrelease.yaml b/kubernetes/apps/networking/ingress-nginx/app/helmrelease.yaml
+    diff --git a/kubernetes/base/apps/networking/ingress-nginx/app/helmrelease.yaml b/kubernetes/base/apps/networking/ingress-nginx/app/helmrelease.yaml
     index e582d4a..0f80700 100644
-    --- a/kubernetes/apps/networking/ingress-nginx/app/helmrelease.yaml
-    +++ b/kubernetes/apps/networking/ingress-nginx/app/helmrelease.yaml
+    --- a/kubernetes/base/apps/networking/ingress-nginx/app/helmrelease.yaml
+    +++ b/kubernetes/base/apps/networking/ingress-nginx/app/helmrelease.yaml
     @@ -60,7 +60,7 @@ spec:
                namespaceSelector:
                  any: true
@@ -429,10 +429,10 @@ By default this template will deploy a wildcard certificate with the Let's Encry
            resources:
              requests:
                cpu: 10m
-    diff --git a/kubernetes/apps/networking/ingress-nginx/certificates/kustomization.yaml b/kubernetes/apps/networking/ingress-nginx/certificates/kustomization.yaml
+    diff --git a/kubernetes/base/apps/networking/ingress-nginx/certificates/kustomization.yaml b/kubernetes/base/apps/networking/ingress-nginx/certificates/kustomization.yaml
     index d57147d..f58e4a7 100644
-    --- a/kubernetes/apps/networking/ingress-nginx/certificates/kustomization.yaml
-    +++ b/kubernetes/apps/networking/ingress-nginx/certificates/kustomization.yaml
+    --- a/kubernetes/base/apps/networking/ingress-nginx/certificates/kustomization.yaml
+    +++ b/kubernetes/base/apps/networking/ingress-nginx/certificates/kustomization.yaml
     @@ -3,4 +3,4 @@ apiVersion: kustomize.config.k8s.io/v1beta1
      kind: Kustomization
      resources:
@@ -508,7 +508,7 @@ Flux is pull-based by design meaning it will periodically check your git reposit
 2. Webhook secret - Your webhook secret can be found by decrypting the `secret.sops.yaml` using the following command:
 
    ```sh
-   sops -d ./kubernetes/apps/flux-system/addons/webhooks/github/secret.sops.yaml | yq .stringData.token
+   sops -d ./kubernetes/base/apps/flux-system/addons/webhooks/github/secret.sops.yaml | yq .stringData.token
    ```
 
    **Note:** Don't forget to update the `bootstrap_flux_github_webhook_token` variable in the `config.yaml` file so it matches the generated secret if applicable

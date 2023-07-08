@@ -7,7 +7,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-cert-manager-issuers
-  path: ./kubernetes/apps/networking/ingress-nginx/certificates
+  path: ./kubernetes/base/apps/networking/ingress-nginx/certificates
   prune: true
   sourceRef:
     kind: GitRepository
@@ -25,7 +25,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-ingress-nginx-certificates
-  path: ./kubernetes/apps/networking/ingress-nginx/app
+  path: ./kubernetes/base/apps/networking/ingress-nginx/app
   prune: true
   sourceRef:
     kind: GitRepository

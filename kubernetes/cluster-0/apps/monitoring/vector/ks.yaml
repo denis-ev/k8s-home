@@ -1,0 +1,48 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: cluster-apps-monitoring-vector-agent
+  namespace: flux-system
+spec:
+  path: ./kubernetes/cluster-0/apps/monitoring/vector/agent
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: home-kubernetes
+  wait: false # no flux ks dependents
+  interval: 30m
+  retryInterval: 1m
+  timeout: 5m
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: cluster-apps-monitoring-vector-aggregator
+  namespace: flux-system
+spec:
+  path: ./kubernetes/cluster-0/apps/monitoring/vector/aggregator
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: home-kubernetes
+  wait: false # no flux ks dependents
+  interval: 30m
+  retryInterval: 1m
+  timeout: 5m
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: cluster-apps-monitoring-vector-geoipupdate
+  namespace: flux-system
+spec:
+  path: ./kubernetes/cluster-0/apps/monitoring/vector/geoipupdate
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: home-kubernetes
+  wait: false # no flux ks dependents
+  interval: 30m
+  retryInterval: 1m
+  timeout: 5m

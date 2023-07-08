@@ -1,0 +1,13 @@
+---
+apiVersion: objectbucket.io/v1alpha1
+kind: ObjectBucketClaim
+metadata:
+  name: postgresql-0
+  namespace: postgresql
+spec:
+  bucketName: postgresql-0
+  storageClassName: ceph-bucket
+
+  # Example for cluster.yaml
+  # destinationPath: s3://postgresql-0/ # bucket name
+  # endpointURL: "${S3_INTERNAL_ENDPOINT_ROOK}"

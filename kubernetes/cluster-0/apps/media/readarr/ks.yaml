@@ -1,0 +1,32 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: cluster-apps-media-readarr-audio
+  namespace: flux-system
+spec:
+  path: ./kubernetes/cluster-0/apps/media/readarr/audio
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: home-kubernetes
+  wait: false # no flux ks dependents
+  interval: 30m
+  retryInterval: 1m
+  timeout: 5m
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: cluster-apps-media-readarr-ebooks
+  namespace: flux-system
+spec:
+  path: ./kubernetes/cluster-0/apps/media/readarr/ebooks
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: home-kubernetes
+  wait: false # no flux ks dependents
+  interval: 30m
+  retryInterval: 1m
+  timeout: 5m

@@ -90,6 +90,7 @@ spec:
       enabled: true
       ingressClassName: nginx
       annotations:
+        ingress.home.arpa/type: "external"
         hajimari.io/icon: simple-icons:grafana
       hosts:
         - &host "grafana.${SECRET_DOMAIN}"

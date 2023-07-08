@@ -13,7 +13,7 @@
     mode: "0755"
   loop:
     - src: templates/ansible/supplemental.yaml.j2
-      dest: ./ansible/inventory/group_vars/kubernetes/supplemental.yaml
+      dest: ./ansible/inventory/group_vars/kubernetes/base/supplemental.yaml
     - src: templates/ansible/hosts.yaml.j2
       dest: ./ansible/inventory/hosts.yaml
 

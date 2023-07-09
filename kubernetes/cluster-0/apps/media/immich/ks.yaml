@@ -2,7 +2,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cluster-apps-media-immich
+  name: cluster-0-apps-media-immich
   namespace: flux-system
 spec:
   path: ./kubernetes/cluster-0/apps/media/immich/app
@@ -18,7 +18,7 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cluster-apps-media-immich-ml
+  name: cluster-0-apps-media-immich-ml
   namespace: flux-system
 spec:
   path: ./kubernetes/cluster-0/apps/media/immich/app/machine-learning
@@ -34,7 +34,7 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cluster-apps-media-immich-ms
+  name: cluster-0-apps-media-immich-ms
   namespace: flux-system
 spec:
   path: ./kubernetes/cluster-0/apps/media/immich/app/microservices
@@ -50,7 +50,7 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cluster-apps-media-immich-redis
+  name: cluster-0-apps-media-immich-redis
   namespace: flux-system
 spec:
   path: ./kubernetes/cluster-0/apps/media/immich/app/redis
@@ -66,7 +66,7 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cluster-apps-media-immich-server
+  name: cluster-0-apps-media-immich-server
   namespace: flux-system
 spec:
   path: ./kubernetes/cluster-0/apps/media/immich/app/server
@@ -82,7 +82,7 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cluster-apps-media-immich-ts
+  name: cluster-0-apps-media-immich-ts
   namespace: flux-system
 spec:
   path: ./kubernetes/cluster-0/apps/media/immich/app/typesense
@@ -98,7 +98,7 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cluster-apps-media-immich-web
+  name: cluster-0-apps-media-immich-web
   namespace: flux-system
 spec:
   path: ./kubernetes/cluster-0/apps/media/immich/app/web

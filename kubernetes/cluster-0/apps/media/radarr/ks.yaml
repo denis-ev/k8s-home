@@ -2,7 +2,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cluster-apps-media-radarr
+  name: cluster-0-apps-media-radarr
   namespace: flux-system
 spec:
   path: ./kubernetes/cluster-0/apps/media/radarr/app

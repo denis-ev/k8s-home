@@ -53,7 +53,7 @@ spec:
   path: ./kubernetes/cluster-0/apps
   prune: true
   dependsOn:
-    - cluster-apps
+    - name: cluster-apps
   sourceRef:
     kind: GitRepository
     name: home-kubernetes

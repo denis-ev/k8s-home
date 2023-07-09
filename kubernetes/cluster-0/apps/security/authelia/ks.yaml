@@ -18,19 +18,19 @@ spec:
   interval: 30m
   retryInterval: 1m
   timeout: 5m
-# ---
-# apiVersion: kustomize.toolkit.fluxcd.io/v1
-# kind: Kustomization
-# metadata:
-#   name: cluster-0-apps-security-authelia-redis
-#   namespace: flux-system
-# spec:
-#   path: ./kubernetes/cluster-0/apps/security/authelia/redis
-#   prune: true
-#   sourceRef:
-#     kind: GitRepository
-#     name: home-kubernetes
-#   wait: false # no flux ks dependents
-#   interval: 30m
-#   retryInterval: 1m
-#   timeout: 5m
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: cluster-0-apps-security-authelia-redis
+  namespace: flux-system
+spec:
+  path: ./kubernetes/cluster-0/apps/security/authelia/redis
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: home-kubernetes
+  wait: false # no flux ks dependents
+  interval: 30m
+  retryInterval: 1m
+  timeout: 5m

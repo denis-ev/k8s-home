@@ -8,7 +8,7 @@ spec:
   path: ./kubernetes/cluster-0/apps/tekton/tekton/app
   sourceRef:
     kind: GitRepository
-    name: homelab-kubernetes
+    name: home-kubernetes
   prune: true
   wait: true
   interval: 30m

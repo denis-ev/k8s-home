@@ -8,7 +8,7 @@ spec:
   path: ./kubernetes/cluster-0/apps/self-hosted/changedetection/app
   sourceRef:
     kind: GitRepository
-    name: homelab-kubernetes
+    name: home-kubernetes
   dependsOn:
     - name: rook-ceph-cluster
     - name: system-volsync

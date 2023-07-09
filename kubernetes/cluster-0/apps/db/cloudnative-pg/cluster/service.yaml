@@ -8,7 +8,7 @@ metadata:
     coredns.io/hostname: postgres.${SECRET_DOMAIN}
 spec:
   type: LoadBalancer
-  loadBalancerIP: "10.1.1.105"
+  loadBalancerIP: "10.1.99.105"
   externalTrafficPolicy: Local
   ports:
     - name: postgres

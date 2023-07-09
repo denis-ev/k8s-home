@@ -8,7 +8,7 @@ spec:
   path: ./kubernetes/cluster-0/apps/security/authelia/app
   prune: true
   dependsOn:
-    - name: cluster-0-apps-security-authelia-redis
+    # - name: cluster-0-apps-security-authelia-redis
     - name: cluster-0-apps-cloudnative-pg-cluster
     - name: cluster-0-apps-cloudnative-pg-app
   sourceRef:

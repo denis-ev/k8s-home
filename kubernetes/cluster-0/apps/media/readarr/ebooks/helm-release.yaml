@@ -17,7 +17,7 @@ spec:
   values:
     image:
       repository: ghcr.io/onedr0p/readarr-nightly
-      tag: 0.2.2.1931@sha256:efa44f714b682969b2037663c7331a0c3f11a34bd9b2af2ed3efdebd3ec92422
+      tag: 0.2.2.1943@sha256:266fa93f38c0a34c7f3eb83c6f1b6a0a9d10693c26723aba99e0854ab9a7c8b9
     env:
       READARR__INSTANCE_NAME: Readarr (Ebooks)
       READARR__PORT: &port 80

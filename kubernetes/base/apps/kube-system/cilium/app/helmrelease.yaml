@@ -30,7 +30,9 @@ spec:
     bpf:
       masquerade: true
     bgp:
-      enabled: false
+      enabled: true
+      announce:
+        loadbalancerIP: true
     cluster:
       name: home-cluster
       id: 1

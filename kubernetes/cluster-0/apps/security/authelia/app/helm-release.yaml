@@ -28,6 +28,7 @@ spec:
   dependsOn:
     - name: glauth
       namespace: security
+    # TODO adding Postgres Cluster Dependency
     - name: redis
       namespace: db
   values:

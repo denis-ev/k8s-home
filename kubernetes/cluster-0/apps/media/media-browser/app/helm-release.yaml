@@ -73,12 +73,12 @@ spec:
       config:
         enabled: true
         existingClaim: media-browser-config-pvc
-      ## TODO
-      # nfs-nas-media:
-      #   enabled: true
-      #   existingClaim: media-nfs-share-pvc
-      #   mountPath: /data
-      #   readOnly: false
+      # TODO
+      nfs-nas-media:
+        enabled: true
+        existingClaim: media-nfs-share-pvc
+        mountPath: /data
+        readOnly: false
 
     resources:
       requests:

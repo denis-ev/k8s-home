@@ -21,6 +21,8 @@ metadata:
   name: cluster-0-apps-cloudnative-pg-cluster
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: cluster-0-apps-cloudnative-pg-app
   path: ./kubernetes/cluster-0/apps/db/cloudnative-pg/cluster
   prune: true
   sourceRef:

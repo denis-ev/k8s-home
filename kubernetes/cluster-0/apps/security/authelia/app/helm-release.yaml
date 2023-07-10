@@ -31,6 +31,8 @@ spec:
     # TODO adding Postgres Cluster Dependency
     - name: redis
       namespace: db
+    - name: ingress-nginx
+      namespace: networking
   values:
     controller:
       replicas: 2

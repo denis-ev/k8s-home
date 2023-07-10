@@ -24,7 +24,7 @@ spec:
       DOCS_DEFAULT_LANGUAGE: eng
       DOCS_BASE_URL: "https://docs.${SECRET_DOMAIN}"
       DOCS_ADMIN_EMAIL_INIT: "ryan@ryanholt.net"
-      DATABASE_URL: "jdbc:postgresql://postgres-rw.db.svc.cluster.local:5432/teedydb"
+      DATABASE_URL: "jdbc:postgresql://postgres-rw.db.svc:5432/teedydb"
       DATABASE_USER: "teedyuser"
       DOCS_SMTP_HOSTNAME: "smtp.${SECRET_DOMAIN}"
       DOCS_SMTP_PORT: 25

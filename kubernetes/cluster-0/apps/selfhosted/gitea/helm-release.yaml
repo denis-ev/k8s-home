@@ -78,7 +78,7 @@ spec:
 
         database:
           DB_TYPE: postgres
-          HOST: postgres-rw.db.svc.cluster.local:5432
+          HOST: postgres-rw.db.svc:5432
           USER: gitea
           NAME: gitea
 

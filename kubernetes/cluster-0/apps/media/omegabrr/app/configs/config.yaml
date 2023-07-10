@@ -8,20 +8,20 @@ schedule: "0 */8 * * *"
 
 clients:
   autobrr:
-    host: http://autobrr.media.svc.cluster.local:7474
+    host: http://autobrr.media.svc:7474
     apikey: {{ .AUTOBRR_APIKEY }}
 
   arr:
     - name: radarr
       type: radarr
-      host: http://radarr.media.svc.cluster.local:80
+      host: http://radarr.media.svc:80
       apikey: {{ .RADARR_APIKEY }}
       filters:
         - 1 # movies
 
     - name: sonarr
       type: sonarr
-      host: http://sonarr.media.svc.cluster.local:80
+      host: http://sonarr.media.svc:80
       apikey: {{ .SONARR_APIKEY }}
       filters:
         - 2 # shows

@@ -35,7 +35,7 @@ spec:
         sabnzbd.media,
         sabnzbd.media.svc,
         sabnzbd.media.svc.cluster,
-        sabnzbd.media.svc.cluster.local,
+        sabnzbd.media.svc,
         sabnzbd.${SECRET_DOMAIN}
     envFrom:
       - secretRef:

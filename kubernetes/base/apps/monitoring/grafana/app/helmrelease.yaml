@@ -37,14 +37,12 @@ spec:
       existingSecret: grafana-admin-secret
     env:
       GF_EXPLORE_ENABLED: true
+      GF_SERVER_DOMAIN: grafana.${SECRET_DOMAIN}
       GF_SERVER_ROOT_URL: "https://grafana.${SECRET_DOMAIN}"
     grafana.ini:
       analytics:
         check_for_updates: false
         check_for_plugin_updates: false
-      server:
-        domain: grafana.${SECRET_DOMAIN}
-        root_url: "%(protocol)s://%(domain)s/"
     dashboardProviders:
       dashboardproviders.yaml:
         apiVersion: 1

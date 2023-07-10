@@ -12,7 +12,7 @@ metadata:
       that are not not exposed to the internet.
 spec:
   generateExistingOnPolicyUpdate: true
-  validationFailureAction: enforce
+  validationFailureAction: Enforce
   rules:
     - name: ensure-annotation-present
       match:

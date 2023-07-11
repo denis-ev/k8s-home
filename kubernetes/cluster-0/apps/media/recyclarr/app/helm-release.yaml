@@ -48,8 +48,8 @@ spec:
     persistence:
       config:
         enabled: true
-        type: secret
-        name: recyclarr-secret
+        type: ConfigMap
+        name: recyclarr-config-tpl
         mountPath: /config/recyclarr.yml
         subPath: recyclarr.yml
         readOnly: true

@@ -5,6 +5,7 @@ namespace: media
 resources:
   # - ./externalsecret.yaml
   - ./helm-release.yaml
+  - ./secret.sops.yaml
 configMapGenerator:
   - name: recyclarr-config-tpl
     files:

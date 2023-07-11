@@ -4,8 +4,8 @@ kind: Kustomization
 namespace: media
 resources:
   - ./config-pvc.yaml
-  # - ./externalsecret.yaml
   - ./helm-release.yaml
+  - ./secret.sops.yaml
   #- ./volsync.yaml
 configMapGenerator:
   - name: pmm-config-tpl

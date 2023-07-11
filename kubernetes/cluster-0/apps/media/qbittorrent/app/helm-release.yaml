@@ -97,11 +97,11 @@ spec:
       config:
         enabled: true
         existingClaim: qb-config-pvc
-      # nfs-nas-media:
-      #   enabled: true
-      #   existingClaim: media-nfs-share-pvc
-      #   mountPath: /media
-      #   readOnly: false
+      nfs-nas-media:
+        enabled: true
+        existingClaim: media-nfs-share-pvc
+        mountPath: /media
+        readOnly: false
 
     resources:
       requests:

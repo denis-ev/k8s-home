@@ -64,7 +64,7 @@ spec:
         existingClaim: bazarr-config-pvc
       media:
         enabled: true
-        existingClaim: cephfs-pvc
+        existingClaim: media-nfs-share-pvc
         mountPath: /data
       # scripts:
       #   enabled: true

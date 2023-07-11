@@ -8,7 +8,7 @@ resources:
 configMapGenerator:
   - name: omegabrr-config-tpl
     files:
-      - ./config/config.yaml
+      - ./configs/config.yaml
 generatorOptions:
   disableNameSuffixHash: true
 labels:

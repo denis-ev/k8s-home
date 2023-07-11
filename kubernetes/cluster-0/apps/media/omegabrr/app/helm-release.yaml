@@ -43,8 +43,8 @@ spec:
     persistence:
       config:
         enabled: true
-        type: secret
-        name: omegabrr-secret
+        type: configMap
+        name: omegabrr-config-tpl
         mountPath: /config/config.yaml
         subPath: config.yaml
         readOnly: true

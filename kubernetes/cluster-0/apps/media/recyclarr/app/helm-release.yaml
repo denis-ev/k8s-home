@@ -48,7 +48,7 @@ spec:
     persistence:
       config:
         enabled: true
-        type: ConfigMap
+        type: configMap
         name: recyclarr-config-tpl
         mountPath: /config/recyclarr.yml
         subPath: recyclarr.yml

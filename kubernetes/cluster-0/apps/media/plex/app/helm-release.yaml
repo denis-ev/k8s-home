@@ -37,6 +37,9 @@ spec:
           http:
             port: 32400
 
+    env:
+      PLEX_CLAIM: "claim-y51WGD6S5YaB4BxvGLyM"
+
     ingress:
       main:
         enabled: true

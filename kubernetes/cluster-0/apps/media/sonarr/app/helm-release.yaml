@@ -70,6 +70,7 @@ spec:
         ingressClassName: "nginx"
         annotations:
           ingress.home.arpa/type: "internal"
+          hajimari.io/enable: "false"
         hosts:
           - host: *host
             paths:

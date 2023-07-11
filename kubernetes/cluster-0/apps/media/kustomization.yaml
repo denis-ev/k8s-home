@@ -6,7 +6,7 @@ resources:
   - ./autobrr/ks.yaml
   - ./bazarr/ks.yaml
   - ./calibre-web/ks.yaml
-  # - immich/ks.yaml
+  - ./immich/ks.yaml
   - ./media-browser/ks.yaml
   # - omegabrr/ks.yaml
   # - overseerr/ks.yaml

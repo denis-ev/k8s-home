@@ -5,7 +5,6 @@ kind: Kustomization
 namespace: media
 resources:
   - ./configmap.yaml
-  - ./ks.yaml
   - ./nfs-pvc.yaml
   - ./secret.sops.yaml
 labels:

@@ -4,8 +4,8 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - ./autobrr/ks.yaml
-  - bazarr/ks.yaml
-  # - calibre-web/ks.yaml
+  - ./bazarr/ks.yaml
+  - ./calibre-web/ks.yaml
   # - immich/ks.yaml
   - ./media-browser/ks.yaml
   # - omegabrr/ks.yaml

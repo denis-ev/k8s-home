@@ -72,10 +72,10 @@ spec:
         enabled: true
         existingClaim: calibre-web-config-pvc
       ## TODO
-      # media:
-      #   enabled: true
-      #   mountPath: /data/media
-      #   existingClaim: media-nfs-share-pvc
+      media:
+        enabled: true
+        mountPath: /data/media
+        existingClaim: media-nfs-share-pvc
       cache:
         enabled: true
         type: emptyDir

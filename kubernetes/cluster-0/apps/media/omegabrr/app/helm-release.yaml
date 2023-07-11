@@ -45,6 +45,6 @@ spec:
         enabled: true
         type: secret
         name: omegabrr-secret
-        mountPath: /configs/config.yaml
+        mountPath: /config/config.yaml
         subPath: config.yaml
         readOnly: true

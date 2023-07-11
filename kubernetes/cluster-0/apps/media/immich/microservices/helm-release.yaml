@@ -27,6 +27,7 @@ spec:
     keepHistory: false
   dependsOn:
     - name: immich-typesense
+      namespace: media
   values:
     controller:
       replicas: 2

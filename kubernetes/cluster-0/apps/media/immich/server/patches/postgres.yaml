@@ -7,7 +7,7 @@ metadata:
 spec:
   values:
     initContainers:
-      init-db:
+      immich-init-db:
         image: ghcr.io/onedr0p/postgres-init:14.8@sha256:dfddde81c0d49da09da1e893c95c32934333baba60edde707be5010dc3baa4c2
         env:
           - name: INIT_POSTGRES_HOST

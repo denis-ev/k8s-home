@@ -29,23 +29,33 @@ spec:
     - name: ingress-nginx
       namespace: networking
   values:
-    extraArgs:
-      - --enable-skip-login
-      - --disable-settings-authorizer
-      - --enable-insecure-login
-      - --token-ttl=43200
-    ingress:
-      enabled: true
-      className: nginx
-      annotations:
-        ingress.home.arpa/type: "external-auth"
-        hajimari.io/icon: mdi:kubernetes
-      hosts:
-        - &host "kubernetes.${SECRET_DOMAIN}"
-      tls:
-        - hosts:
-            - *host
+    env:
+      TZ: "${TIMEZONE}"
+    api:
+      containers:
+        args:
+          - --enable-insecure-login=true
+          - --enable-skip-login=true
+          - --disable-settings-authorizer=true
+    app:
+      ingress:
+        enabled: true
+        className: nginx
+        annotations:
+          ingress.home.arpa/type: "external-auth"
+          hajimari.io/icon: mdi:kubernetes
+        hosts:
+          - &host "kubernetes.${SECRET_DOMAIN}"
+        tls:
+          - hosts:
+              - *host
     metricsScraper:
       enabled: true
     serviceMonitor:
+      enabled: false
+    cert-manager:
+      enabled: false
+    nginx:
+      enabled: false
+    metrics-server:
       enabled: false

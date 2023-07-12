@@ -36,9 +36,9 @@ spec:
       service:
         annotations:
           ingress.home.arpa/type: "internal"
-          external-dns.alpha.kubernetes.io/target: "ingress.${SECRET_DOMAIN}"
+          external-dns.alpha.kubernetes.io/hostname: "ingress.${SECRET_DOMAIN}"
           io.cilium/lb-ipam-ips: "10.1.99.100"
-        externalTrafficPolicy: Local
+        externalTrafficPolicy: Cluster
       publishService:
         enabled: true
       ingressClassResource:

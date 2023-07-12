@@ -2,10 +2,10 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cluster-apps-reloader
+  name: cluster-apps-echo-server
   namespace: flux-system
 spec:
-  path: ./kubernetes/base/apps/kube-system/reloader/app
+  path: ./kubernetes/base/apps/networking/echo-server/app
   prune: true
   sourceRef:
     kind: GitRepository

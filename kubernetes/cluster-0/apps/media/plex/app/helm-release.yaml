@@ -37,8 +37,8 @@ spec:
           http:
             port: 32400
 
-    env:
-      PLEX_CLAIM: "claim-y51WGD6S5YaB4BxvGLyM"
+    # env:
+    #   PLEX_CLAIM: "claim-y51WGD6S5YaB4BxvGLyM"
 
     ingress:
       main:
@@ -46,7 +46,7 @@ spec:
         ingressClassName: "nginx"
         annotations:
           ingress.home.arpa/type: "external"
-          nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+          # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
         hosts:
           - host: &host "plex.${SECRET_DOMAIN}"
             paths:

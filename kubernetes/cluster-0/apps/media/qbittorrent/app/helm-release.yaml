@@ -53,7 +53,7 @@ spec:
       bittorrent:
         enabled: true
         type: LoadBalancer
-        loadBalancerIP: "${SVC_QBITTORRENT_ADDRESS}"
+        loadBalancerIP: "10.1.99.101"
         ports:
           bittorrent:
             enabled: true

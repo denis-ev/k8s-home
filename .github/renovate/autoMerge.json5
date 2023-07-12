@@ -19,7 +19,7 @@
     },
     {
       "description": "Auto merge helm updates",
-      "matchDatasources": ["helm"],
+      "matchDatasources": ["helm-values"],
       "automerge": true,
       "automergeType": "branch",
       "ignoreTests": false,

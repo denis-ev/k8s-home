@@ -1,17 +1,27 @@
 ---
-- name: Template Ansible configuration
+- name: Set addon facts
+  ansible.builtin.set_fact:
+    addon_name: weave-gitops
+    addon_namespace: flux-system
+
+- name: Ensure directories exist for {{ addon_namespace }}/{{ addon_name }}
+  when: item.state == 'directory'
+  ansible.builtin.file:
+    path: "{{ repository_path }}/kubernetes/apps/{{ addon_namespace }}/{{ addon_name }}/{{ item.path }}"
+    state: directory
+    mode: "0755"
+  with_community.general.filetree: ["../templates/addons/{{ addon_name }}/"]
+
+- name: Template unencrypted files for {{ addon_namespace }}/{{ addon_name }}
+  when: item.state == 'file' and 'sops' not in item.path
   ansible.builtin.template:
     src: "{{ item.src }}"
-    dest: "{{ repository_path }}/{{ item.dest }}"
+    dest: "{{ repository_path }}/kubernetes/apps/{{ addon_namespace }}/{{ addon_name }}/{{ item.path | replace('.j2', '') }}"
     mode: "0755"
-  loop:
-    - src: templates/ansible/supplemental.yaml.j2
-      dest: ./ansible/inventory/group_vars/kubernetes/supplemental.yaml
-    - src: templates/ansible/hosts.yaml.j2
-      dest: ./ansible/inventory/hosts.yaml
+  with_community.general.filetree: ["../templates/addons/{{ addon_name }}/"]
 
 # https://github.com/ansible-collections/community.sops/issues/153
-- name: Template Ansible encrypted files
+- name: Template encrypted files for {{ addon_namespace }}/{{ addon_name }}
   block:
     - name: Rename Sops configuration file
       ansible.builtin.copy:
@@ -22,16 +32,16 @@
       ansible.builtin.file:
         path: "{{ repository_path }}/.sops.yaml"
         state: absent
-    - name: Template encrypted node secrets
+    - name: Template encrypted files
+      when: item.state == 'file' and 'sops' in item.path
       community.sops.sops_encrypt:
-        path: "{{ repository_path }}/ansible/inventory/host_vars/{{ item.name }}.sops.yaml"
+        path: "{{ repository_path }}/kubernetes/apps/{{ addon_namespace }}/{{ addon_name }}/{{ item.path | replace('.j2', '') }}"
+        encrypted_regex: ^(data|stringData)$
         age: ["{{ bootstrap_age_public_key }}"]
-        content_yaml: "{{ lookup('ansible.builtin.template', 'templates/ansible/node.sops.yaml.j2', template_vars=dict(password=item.password)) | from_yaml }}"
+        content_yaml: "{{ lookup('ansible.builtin.template', item.src) | from_yaml }}"
         mode: "0755"
         force: true
-      loop: "{{ bootstrap_nodes.master + bootstrap_nodes.worker | default([]) }}"
-      loop_control:
-        label: "{{ item.address }}"
+      with_community.general.filetree: ["../templates/addons/{{ addon_name }}/"]
     - name: Restore Sops configuration file
       ansible.builtin.copy:
         src: "{{ repository_path }}/.sops.yaml.orig"

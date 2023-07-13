@@ -27,17 +27,17 @@ spec:
       dataStorage:
         enabled: true
         size: 5Gi
-        storageClass: ${STORAGE_CLASS_SSD}
+        storageClass: ${local-path}
       auditStorage:
         enabled: true
         size: 5Gi
-        storageClass: ${STORAGE_CLASS_SSD}
+        storageClass: ${local-path}
       extraEnvironmentVars:
         TZ: ${TIMEZONE}
         # VAULT_ADDR: "http://127.0.0.1:8200"
     ui:
       enabled: true
-      ## TODO
-      # ingress.home.arpa/type: "external-auth"
+      annotations:
+        ingress.home.arpa/type: "external-auth"
     csi:
       enabled: false

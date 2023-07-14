@@ -57,17 +57,17 @@ spec:
           - hosts:
               - *host
       kobo:
-        enabled: true
-        annotations:
-          ingress.home.arpa/type: "internal"
-        ingressClassName: nginx
-        hosts:
-          - host: &host_kobo calibre-kobo.${SECRET_DOMAIN}
-            paths:
-              - path: /kobo/
-        tls:
-          - hosts:
-              - *host_kobo
+        enabled: false
+        # annotations:
+        #   ingress.home.arpa/type: "internal"
+        # ingressClassName: nginx
+        # hosts:
+        #   - host: &host_kobo calibre-kobo.${SECRET_DOMAIN}
+        #     paths:
+        #       - path: /kobo/
+        # tls:
+        #   - hosts:
+        #       - *host_kobo
 
     persistence:
       config:

@@ -8,36 +8,98 @@ spec:
   interval: 5m
   chart:
     spec:
+      # renovate: registryUrl=https://helm.releases.hashicorp.com
       chart: vault
       version: 0.25.0
       sourceRef:
         kind: HelmRepository
         name: hashicorp-charts
         namespace: flux-system
+      interval: 5m
+
   values:
     metrics:
       enabled: true
     service:
       enabled: true
     server:
-      extraLabels:
-        configmap.reloader.stakater.com/reload: vault-config
+      enabled: true
+      image:
+        repository: "hashicorp/vault"
+        tag: "1.13.2"
       ingress:
-        enabled: false
+        enabled: true
+        ingressClassName: nginx
+        annotation:
+          ingress.home.arpa/type: "external-auth"
+        hosts:
+          - host: &host-ui vault.${SECRET_DOMAIN}
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host-ui
+
       dataStorage:
         enabled: true
-        size: 5Gi
-        storageClass: ${local-path}
+        size: 10Gi
+        storageClass: local-path
+
       auditStorage:
         enabled: true
-        size: 5Gi
-        storageClass: ${local-path}
+        size: 10Gi
+        mountPath: "/vault/audit"
+        storageClass: local-path
+
       extraEnvironmentVars:
         TZ: ${TIMEZONE}
         # VAULT_ADDR: "http://127.0.0.1:8200"
+
+      resources:
+        requests:
+          memory: 256Mi
+          cpu: 250m
+
+      standalone:
+        enabled: false
+
+      ha:
+        enabled: true
+        replicas: 3
+        config: |
+          ui = true
+          listener "tcp" {
+            tls_disable = 1
+            address = "[::]:8200"
+            cluster_address = "[::]:8201"
+          }
+          storage "consul" {
+            path = "vault"
+            address = "consul-consul-server:8500"
+          }
+          service_registration "kubernetes" {}
+          # Example configuration for using auto-unseal, using Google Cloud KMS. The
+          # GKMS keys must already exist, and the cluster must have a service account
+          # that is authorized to access GCP KMS.
+          #seal "gcpckms" {
+          #   project     = "vault-helm-dev-246514"
+          #   region      = "global"
+          #   key_ring    = "vault-helm-unseal-kr"
+          #   crypto_key  = "vault-helm-unseal-key"
+          #}
+
     ui:
       enabled: true
       annotations:
         ingress.home.arpa/type: "external-auth"
+      hosts:
+        - host: &host-ui vault-ui.${SECRET_DOMAIN}
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - hosts:
+            - *host-ui
     csi:
       enabled: false

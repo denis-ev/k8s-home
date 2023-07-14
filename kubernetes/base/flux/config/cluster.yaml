@@ -8,7 +8,7 @@ spec:
   interval: 30m
   ref:
     branch: main
-  url: "ssh://git@github.com/denis-ev/k8s-home.git"
+  url: "ssh://git@git.evers.sh:2221/denis-ev/k8s-home.gitaa"
   secretRef:
     name: ssh-deploy-key
   ignore: |

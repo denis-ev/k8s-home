@@ -4,5 +4,4 @@ kind: Namespace
 metadata:
   name: selfhosted
   labels:
-    goldilocks.fairwinds.com/enabled: "true"
     secret.home.arpa/postgres-superuser: "true"

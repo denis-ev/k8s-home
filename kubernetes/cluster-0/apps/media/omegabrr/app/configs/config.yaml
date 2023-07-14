@@ -2,43 +2,27 @@
 server:
   host: 0.0.0.0
   port: 7441
-  apiToken:
-    valueFrom:
-        secretKeyRef:
-          name: omegabrr-secret
-          key: OMEGABRR_APIKEY
+  apiToken: 8546d24137b6f4d569655d0d0e0bde35ee5146df5743826964b5a0890a57b0afb8b1bc0caebea944
 
 schedule: "0 */8 * * *"
 
 clients:
   autobrr:
     host: http://autobrr.media.svc:7474
-    apikey:
-      valueFrom:
-        secretKeyRef:
-          name: omegabrr-secret
-          key: AUTOBRR_APIKEY
+    apikey: 3532eef2d5c7265a3050adb4d18031ed
 
   arr:
     - name: radarr
       type: radarr
       host: http://radarr.media.svc:80
-      apikey:
-        valueFrom:
-        secretKeyRef:
-          name: omegabrr-secret
-          key: RADARR_APIKEY
+      apikey: b7e289fad54262c039ba5c2936951096c839686a6df3a174d8dbf62959ffd1f30ada518b5dcf2c6d
       filters:
         - 1 # movies
 
     - name: sonarr
       type: sonarr
       host: http://sonarr.media.svc:80
-      apikey:
-        valueFrom:
-        secretKeyRef:
-          name: omegabrr-secret
-          key: SONARR_APIKEY
+      apikey: 9434db2dc53be5e06415947cb8f6db4e07b54752c7348b62f8d47571d903927bc7ba7445cfb739ad
       filters:
         - 2 # shows
       excludeAlternateTitles: true

@@ -33,13 +33,13 @@ spec:
         annotation:
           ingress.home.arpa/type: "external-auth"
         hosts:
-          - host: &host-ui vault.${SECRET_DOMAIN}
+          - host: &host vault.${SECRET_DOMAIN}
             paths:
               - path: /
                 pathType: Prefix
         tls:
           - hosts:
-              - *host-ui
+              - *host
 
       dataStorage:
         enabled: true

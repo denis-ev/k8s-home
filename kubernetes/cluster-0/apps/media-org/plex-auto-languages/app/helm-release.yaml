@@ -31,7 +31,7 @@ spec:
         secret.reloader.stakater.com/reload: &secret plex-auto-languages-secret
     image:
       repository: docker.io/remirigal/plex-auto-languages
-      tag: v1.2.1
+      tag: v1.2.2
     env:
       PLEX_URL: "http://plex.media.svc:32400"
       REFRESH_LIBRARY_ON_SCAN: "false"

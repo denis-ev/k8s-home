@@ -55,6 +55,7 @@ spec:
             - name: attempts
               value: "1"
             searches:
+            - cluster.local
             - svc.cluster.local
             - "{{ request.namespace }}.svc.cluster.local"
           dnsPolicy: None

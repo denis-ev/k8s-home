@@ -2,29 +2,32 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: shlink-api
-  namespace: selfhosted
+  name: authelia
+  namespace: security
 spec:
   values:
     initContainers:
       init-db:
-        image: ghcr.io/onedr0p/postgres-initdb:14.8
+        image: ghcr.io/onedr0p/postgres-init:14.8@sha256:dfddde81c0d49da09da1e893c95c32934333baba60edde707be5010dc3baa4c2
         env:
-          - name: POSTGRES_HOST
+          - name: INIT_POSTGRES_HOST
             value: postgres-rw.db.svc
-          - name: POSTGRES_DB
-            value: shlink
-          - name: POSTGRES_SUPER_PASS
-            valueFrom:
-              secretKeyRef:
-                name: postgres-superuser
-                key: password
-          - name: POSTGRES_USER
+          - name: INIT_POSTGRES_DBNAME
             valueFrom:
               secretKeyRef:
                 name: shlink-api-secrets
                 key: DB_USER
-          - name: POSTGRES_PASS
+          - name: INIT_POSTGRES_SUPER_PASS
+            valueFrom:
+              secretKeyRef:
+                name: shlink-api-secrets
+                key: POSTGRES_SUPER_PASS
+          - name: INIT_POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: shlink-api-secrets
+                key: DB_USER
+          - name: INIT_POSTGRES_PASS
             valueFrom:
               secretKeyRef:
                 name: shlink-api-secrets

@@ -72,5 +72,5 @@ spec:
           enabled: true
           params:
             podsHavingTooManyRestarts:
-              podRestartThreshold: 100
+              podRestartThreshold: 20
               includingInitContainers: true

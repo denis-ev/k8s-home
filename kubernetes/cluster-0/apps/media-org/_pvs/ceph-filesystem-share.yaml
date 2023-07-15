@@ -1,0 +1,13 @@
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: cephfs-pvc
+  namespace: media-org
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ceph-filesystem
+  resources:
+    requests:
+      storage: 1Gi

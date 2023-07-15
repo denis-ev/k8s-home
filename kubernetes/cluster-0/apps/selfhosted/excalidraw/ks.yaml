@@ -1,0 +1,32 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: cluster-0-apps-selfhosted-excalidraw-collab
+  namespace: flux-system
+spec:
+  path: ./kubernetes/cluster-0/apps/selfhosted/excalidraw/collaboration
+  sourceRef:
+    kind: GitRepository
+    name: home-kubernetes
+  prune: true
+  wait: true
+  interval: 30m
+  retryInterval: 1m
+  timeout: 5m
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: cluster-0-apps-selfhosted-excalidraw
+  namespace: flux-system
+spec:
+  path: ./kubernetes/cluster-0/apps/selfhosted/excalidraw/draw
+  sourceRef:
+    kind: GitRepository
+    name: home-kubernetes
+  prune: true
+  wait: true
+  interval: 30m
+  retryInterval: 1m
+  timeout: 5m

@@ -35,7 +35,7 @@ spec:
       repository: ghcr.io/shlinkio/shlink-web-client
       tag: 3.10.2
     env:
-      SHLINK_SERVER_URL: https://ryho.lt
+      SHLINK_SERVER_URL: https://shlink.${SECRET_DOMAIN}
     envFrom:
       - secretRef:
           name: shlink-secret

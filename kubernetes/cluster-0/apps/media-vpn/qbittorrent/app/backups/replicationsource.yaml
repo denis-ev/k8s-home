@@ -3,7 +3,7 @@ apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
   name: qb
-  namespace: media
+  namespace: media-vpn
 spec:
   sourcePVC: qb-config-pvc
   trigger:

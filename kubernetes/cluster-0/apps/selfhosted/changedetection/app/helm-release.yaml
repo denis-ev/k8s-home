@@ -32,7 +32,6 @@ spec:
       repository: ghcr.io/dgtlmoon/changedetection.io
       tag: "0.43.2"
     env:
-      TZ: ${CONFIG_TIMEZONE}
       PORT: &port 5000
       USE_X_SETTINGS: 1
       PLAYWRIGHT_DRIVER_URL: ws://localhost:3000/?stealth=1&--disable-web-security=true&--user-data-dir=~/browserless-cache-123
@@ -57,7 +56,7 @@ spec:
         mountPath: /datastore
         accessMode: ReadWriteOnce
         size: 1Gi
-        storageClass: ceph-block
+        storageClass: local-path
     sidecars:
       browser:
         image: docker.io/browserless/chrome:latest

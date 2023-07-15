@@ -25,16 +25,16 @@ spec:
       secret.reloader.stakater.com/reload: znc-tls
 
     env:
-      TIMEZONE: "America/New_York"
+      TIMEZONE: "Australia/Perth"
 
     service:
       main:
         enabled: true
         type: LoadBalancer
         annotation:
-          external-dns.alpha.kubernetes.io/hostname: "znc.${SECRET_DOMAIN}"
-        loadBalancerIP: "${SVC_ZNC_ADDRESS}"
-        externalTrafficPolicy: Local
+          ingress.home.arpa/type: "external-auth"
+        loadBalancerIP: "10.1.99.102"
+        externalTrafficPolicy: Cluster
         ports:
           http:
             port: 1111

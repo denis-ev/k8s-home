@@ -5,7 +5,7 @@ metadata:
   name: cluster-0-apps-media-immich
   namespace: flux-system
 spec:
-  path: ./kubernetes/cluster-0/apps/media/immich
+  path: ./kubernetes/cluster-0/apps/media-org/immich
   prune: true
   sourceRef:
     kind: GitRepository
@@ -21,7 +21,7 @@ metadata:
   name: cluster-0-apps-media-immich-ml
   namespace: flux-system
 spec:
-  path: ./kubernetes/cluster-0/apps/media/immich/machine-learning
+  path: ./kubernetes/cluster-0/apps/media-org/immich/machine-learning
   prune: true
   sourceRef:
     kind: GitRepository
@@ -37,7 +37,7 @@ metadata:
   name: cluster-0-apps-media-immich-ms
   namespace: flux-system
 spec:
-  path: ./kubernetes/cluster-0/apps/media/immich/microservices
+  path: ./kubernetes/cluster-0/apps/media-org/immich/microservices
   prune: true
   sourceRef:
     kind: GitRepository
@@ -53,7 +53,7 @@ metadata:
   name: cluster-0-apps-media-immich-redis
   namespace: flux-system
 spec:
-  path: ./kubernetes/cluster-0/apps/media/immich/redis
+  path: ./kubernetes/cluster-0/apps/media-org/immich/redis
   prune: true
   sourceRef:
     kind: GitRepository
@@ -69,7 +69,7 @@ metadata:
   name: cluster-0-apps-media-immich-server
   namespace: flux-system
 spec:
-  path: ./kubernetes/cluster-0/apps/media/immich/server
+  path: ./kubernetes/cluster-0/apps/media-org/immich/server
   prune: true
   sourceRef:
     kind: GitRepository
@@ -85,7 +85,7 @@ metadata:
   name: cluster-0-apps-media-immich-ts
   namespace: flux-system
 spec:
-  path: ./kubernetes/cluster-0/apps/media/immich/typesense
+  path: ./kubernetes/cluster-0/apps/media-org/immich/typesense
   prune: true
   sourceRef:
     kind: GitRepository
@@ -101,7 +101,7 @@ metadata:
   name: cluster-0-apps-media-immich-web
   namespace: flux-system
 spec:
-  path: ./kubernetes/cluster-0/apps/media/immich/web
+  path: ./kubernetes/cluster-0/apps/media-org/immich/web
   prune: true
   sourceRef:
     kind: GitRepository

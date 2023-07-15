@@ -5,7 +5,7 @@ metadata:
   name: cluster-0-apps-media-overseerr
   namespace: flux-system
 spec:
-  path: ./kubernetes/cluster-0/apps/media/overseerr/app
+  path: ./kubernetes/cluster-0/apps/media-org/overseerr/app
   prune: true
   sourceRef:
     kind: GitRepository

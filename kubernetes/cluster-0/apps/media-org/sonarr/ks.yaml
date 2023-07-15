@@ -5,7 +5,7 @@ metadata:
   name: cluster-0-apps-media-sonarr
   namespace: flux-system
 spec:
-  path: ./kubernetes/cluster-0/apps/media/sonarr/app
+  path: ./kubernetes/cluster-0/apps/media-org/sonarr/app
   prune: true
   sourceRef:
     kind: GitRepository

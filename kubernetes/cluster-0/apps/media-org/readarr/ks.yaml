@@ -5,7 +5,7 @@ metadata:
   name: cluster-0-apps-media-readarr-audio
   namespace: flux-system
 spec:
-  path: ./kubernetes/cluster-0/apps/media/readarr/audio
+  path: ./kubernetes/cluster-0/apps/media-org/readarr/audio
   prune: true
   sourceRef:
     kind: GitRepository
@@ -21,7 +21,7 @@ metadata:
   name: cluster-0-apps-media-readarr-ebooks
   namespace: flux-system
 spec:
-  path: ./kubernetes/cluster-0/apps/media/readarr/ebooks
+  path: ./kubernetes/cluster-0/apps/media-org/readarr/ebooks
   prune: true
   sourceRef:
     kind: GitRepository

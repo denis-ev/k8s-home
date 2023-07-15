@@ -5,7 +5,7 @@ metadata:
   name: cluster-0-apps-media-plex-meta-manager
   namespace: flux-system
 spec:
-  path: ./kubernetes/cluster-0/apps/media/plex-meta-manager/app
+  path: ./kubernetes/cluster-0/apps/media-org/plex-meta-manager/app
   prune: true
   sourceRef:
     kind: GitRepository

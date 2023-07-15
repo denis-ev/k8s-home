@@ -5,7 +5,7 @@ metadata:
   name: cluster-0-apps-media-plex-auto-languages
   namespace: flux-system
 spec:
-  path: ./kubernetes/cluster-0/apps/media/plex-auto-languages/app
+  path: ./kubernetes/cluster-0/apps/media-org/plex-auto-languages/app
   prune: true
   sourceRef:
     kind: GitRepository

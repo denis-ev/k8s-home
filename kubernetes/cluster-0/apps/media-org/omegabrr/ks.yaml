@@ -5,7 +5,7 @@ metadata:
   name: cluster-0-apps-media-omegabrr
   namespace: flux-system
 spec:
-  path: ./kubernetes/cluster-0/apps/media/omegabrr/app
+  path: ./kubernetes/cluster-0/apps/media-org/omegabrr/app
   prune: true
   sourceRef:
     kind: GitRepository

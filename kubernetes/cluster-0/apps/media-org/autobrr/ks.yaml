@@ -5,7 +5,7 @@ metadata:
   name: cluster-0-apps-media-autobrr
   namespace: flux-system
 spec:
-  path: ./kubernetes/cluster-0/apps/media/autobrr/app
+  path: ./kubernetes/cluster-0/apps/media-org/autobrr/app
   prune: true
   sourceRef:
     kind: GitRepository

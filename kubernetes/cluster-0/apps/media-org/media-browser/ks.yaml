@@ -5,7 +5,7 @@ metadata:
   name: cluster-0-apps-media-browser
   namespace: flux-system
 spec:
-  path: ./kubernetes/cluster-0/apps/media/media-browser/app
+  path: ./kubernetes/cluster-0/apps/media-org/media-browser/app
   prune: true
   sourceRef:
     kind: GitRepository

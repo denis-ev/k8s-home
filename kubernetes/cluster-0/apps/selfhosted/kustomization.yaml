@@ -13,4 +13,4 @@ resources:
   # - ./shlink/ks.yaml
   # - ./smtp-relay/ks.yaml
   # - ./teedy/ks.yaml
-  - ./znc/ks.yaml
+  # - ./znc/ks.yaml

@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: changedetection
-  namespace: self-hosted
+  namespace: selfhosted
 spec:
   interval: 15m
   chart:

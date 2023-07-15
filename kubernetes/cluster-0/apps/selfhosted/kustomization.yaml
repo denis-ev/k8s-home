@@ -10,7 +10,7 @@ resources:
   - ./n8n/ks.yaml
   - ./obsidian-couchdb/ks.yaml
   # - ./paperless/ks.yaml
-  - ./shlink/ks.yaml
-  - ./smtp-relay/ks.yaml
+  # - ./shlink/ks.yaml
+  # - ./smtp-relay/ks.yaml
   # - ./teedy/ks.yaml
   - ./znc/ks.yaml

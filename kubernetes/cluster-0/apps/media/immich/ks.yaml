@@ -6,6 +6,8 @@ metadata:
   namespace: flux-system
 spec:
   path: ./kubernetes/cluster-0/apps/media/immich
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
   prune: true
   sourceRef:
     kind: GitRepository
@@ -22,6 +24,8 @@ metadata:
   namespace: flux-system
 spec:
   path: ./kubernetes/cluster-0/apps/media/immich/machine-learning
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
   prune: true
   sourceRef:
     kind: GitRepository
@@ -38,6 +42,8 @@ metadata:
   namespace: flux-system
 spec:
   path: ./kubernetes/cluster-0/apps/media/immich/microservices
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
   prune: true
   sourceRef:
     kind: GitRepository
@@ -54,6 +60,8 @@ metadata:
   namespace: flux-system
 spec:
   path: ./kubernetes/cluster-0/apps/media/immich/redis
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
   prune: true
   sourceRef:
     kind: GitRepository
@@ -70,6 +78,8 @@ metadata:
   namespace: flux-system
 spec:
   path: ./kubernetes/cluster-0/apps/media/immich/server
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
   prune: true
   sourceRef:
     kind: GitRepository
@@ -86,6 +96,8 @@ metadata:
   namespace: flux-system
 spec:
   path: ./kubernetes/cluster-0/apps/media/immich/typesense
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
   prune: true
   sourceRef:
     kind: GitRepository
@@ -102,6 +114,8 @@ metadata:
   namespace: flux-system
 spec:
   path: ./kubernetes/cluster-0/apps/media/immich/web
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
   prune: true
   sourceRef:
     kind: GitRepository

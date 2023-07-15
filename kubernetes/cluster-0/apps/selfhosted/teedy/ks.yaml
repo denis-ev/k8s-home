@@ -6,6 +6,8 @@ metadata:
   namespace: flux-system
 spec:
   path: ./kubernetes/cluster-0/apps/selfhosted/teedy/app
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
   sourceRef:
     kind: GitRepository
     name: home-kubernetes

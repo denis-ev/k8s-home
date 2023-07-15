@@ -6,6 +6,8 @@ metadata:
   namespace: flux-system
 spec:
   path: ./kubernetes/cluster-0/apps/selfhosted/shlink/web
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
   sourceRef:
     kind: GitRepository
     name: home-kubernetes
@@ -22,6 +24,8 @@ metadata:
   namespace: flux-system
 spec:
   path: ./kubernetes/cluster-0/apps/selfhosted/shlink/api
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
   sourceRef:
     kind: GitRepository
     name: home-kubernetes

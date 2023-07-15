@@ -6,6 +6,8 @@ metadata:
   namespace: flux-system
 spec:
   path: ./kubernetes/cluster-0/apps/security/glauth/app
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
   prune: true
   sourceRef:
     kind: GitRepository

@@ -6,6 +6,8 @@ metadata:
   namespace: flux-system
 spec:
   path: ./kubernetes/cluster-0/apps/media/readarr/audio
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
   prune: true
   sourceRef:
     kind: GitRepository
@@ -22,6 +24,8 @@ metadata:
   namespace: flux-system
 spec:
   path: ./kubernetes/cluster-0/apps/media/readarr/ebooks
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
   prune: true
   sourceRef:
     kind: GitRepository

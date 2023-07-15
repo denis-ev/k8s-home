@@ -4,5 +4,4 @@ kind: Kustomization
 resources:
   - ./change-dns-config-policy.yaml
   - ./inject-tz.yaml
-  - ./refresh-env-var-in-pods.yaml
   - ./remove-cpu-limit.yaml

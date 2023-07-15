@@ -18,19 +18,13 @@
       "matchUpdateTypes": ["digest"]
     },
     {
-      "description": "Auto merge helm updates",
-      "matchDatasources": ["helm-values"],
-      "automerge": true,
-      "automergeType": "branch",
-      "ignoreTests": false,
-      "matchUpdateTypes": ["minor", "patch", "digest"]
-    },
-    {
-      "description": "Auto merge everything patch/minor",
-      "automerge": true,
-      "automergeType": "pr",
-      "ignoreTests": false,
-      "matchUpdateTypes": ["minor", "patch"]
+      "description": "Auto merge Minor and Patch",
+      "minor": {
+        "automerge": true
+      },
+      "patch": {
+        "automerge": true
+      }
     }
   ]
 }

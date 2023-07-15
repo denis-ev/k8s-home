@@ -55,6 +55,6 @@ spec:
             - name: attempts
               value: "1"
             searches:
-            - svc.{{dictionary.data.ClusterConfiguration | parse_yaml(@).clusterName}}
-            - "{{ request.namespace }}.svc.{{ dictionary.data.ClusterConfiguration | parse_yaml(@).clusterName }}"
+            - svc.cluster.local
+            - "{{ request.namespace }}.svc.cluster.local"
           dnsPolicy: None

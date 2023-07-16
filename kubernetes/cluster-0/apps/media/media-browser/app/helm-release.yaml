@@ -31,7 +31,7 @@ spec:
       FB_ROOT: "/data"
       FB_LOG: "stdout"
       FB_NOAUTH: "true"
-      FB_BASEURL: "https://{{ .Release.Name }}.${SECRET_DOMAIN}/"
+      # FB_BASEURL: "https://{{ .Release.Name }}.${SECRET_DOMAIN}/"
 
     service:
       main:

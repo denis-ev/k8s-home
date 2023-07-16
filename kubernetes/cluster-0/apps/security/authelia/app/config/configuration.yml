@@ -30,6 +30,7 @@ access_control:
         - "sabnzbd.${SECRET_DOMAIN}"
         - "sonarr.${SECRET_DOMAIN}"
         - "sonarr-uhd.${SECRET_DOMAIN}"
+        - "media-browser.${SECRET_DOMAIN}"
       policy: bypass
       resources: ["^/api([?/].*)?$"]
 

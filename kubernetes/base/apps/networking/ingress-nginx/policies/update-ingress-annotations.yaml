@@ -14,20 +14,20 @@ spec:
   generateExistingOnPolicyUpdate: true
   validationFailureAction: Enforce
   rules:
-    - name: default-internal
-      match:
-        any:
-          - resources:
-              kinds: ["Ingress"]
-      preconditions:
-        - key: "{{request.object.metadata.annotations['ingress.home.arpa/type']}}"
-          operator: NotIn
-          value: ["internal", "external", "external-auth"]
-      mutate:
-        patchStrategicMerge:
-          metadata:
-            annotations:
-              +(ingress.home.arpa/type): "internal"
+    # - name: default-internal
+    #   match:
+    #     any:
+    #       - resources:
+    #           kinds: ["Ingress"]
+    #   preconditions:
+    #     - key: "{{request.object.metadata.annotations['ingress.home.arpa/type']}}"
+    #       operator: NotIn
+    #       value: ["internal", "external", "external-auth"]
+    #   mutate:
+    #     patchStrategicMerge:
+    #       metadata:
+    #         annotations:
+    #           +(ingress.home.arpa/type): "internal"
 
     - name: ensure-annotation-present
       match:

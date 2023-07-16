@@ -42,6 +42,7 @@ spec:
 
     podAnnotations:
       setGateway: "true"
+      kyverno.io/ignore: "true"
 
     hostname: qbittorrent
 

@@ -47,18 +47,17 @@ spec:
         annotations:
           ingress.home.arpa/type: "external"
           nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-          nginx.ingress.kubernetes.io/rewrite-target: "/web/$2"
+          nginx.ingress.kubernetes.io/rewrite-target: "/web$1"
         hosts:
           - host: &host "plex.${SECRET_DOMAIN}"
             paths:
-              - path: /?(.*)
-                pathType: Prefix
-              - path: /web/(.*)
+              - path: /$
+                pathType: ImplementationSpecific
+              - path: /web(.*)
                 pathType: Prefix
         tls:
           - hosts:
               - *host
-
 
     podSecurityContext:
       runAsUser: 568

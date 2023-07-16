@@ -15,7 +15,6 @@ resources:
   # - ./plex-auto-languages/ks.yaml
   # - ./plex-meta-manager/ks.yaml
   # - ./prowlarr/ks.yaml
-  - ./qbittorrent/ks.yaml
   - ./radarr/ks.yaml
   # - ./readarr/ks.yaml
   # - ./recyclarr/ks.yaml

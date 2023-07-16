@@ -5,7 +5,7 @@ metadata:
   name: cluster-0-apps-media-qbittorrent
   namespace: flux-system
 spec:
-  path: ./kubernetes/cluster-0/apps/media/qbittorrent/app
+  path: ./kubernetes/cluster-0/apps/vpn/qbittorrent/app
   dependsOn:
     - name: cluster-apps-ingress-nginx
   prune: true

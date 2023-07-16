@@ -101,7 +101,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: qb-config-pvc
+        existingClaim: qbittorrent-config-pvc
       nfs-nas-media:
         enabled: true
         existingClaim: media-nfs-share-pvc

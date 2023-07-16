@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pmm-config-pvc
+  name: plex-mm-config-pvc
   namespace: media
 spec:
   accessModes:

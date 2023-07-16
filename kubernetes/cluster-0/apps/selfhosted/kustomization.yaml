@@ -3,12 +3,12 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ./namespace.yaml
-  - ./changedetection/ks.yaml
+  # - ./changedetection/ks.yaml #
   # - ./excalidraw/ks.yaml
   # - ./gitea/ks.yaml
   # - ./miniflux/ks.yaml
-  - ./n8n/ks.yaml
-  - ./obsidian-couchdb/ks.yaml
+  # - ./n8n/ks.yaml #
+  # - ./obsidian-couchdb/ks.yaml #
   # - ./paperless/ks.yaml
   # - ./shlink/ks.yaml
   # - ./smtp-relay/ks.yaml

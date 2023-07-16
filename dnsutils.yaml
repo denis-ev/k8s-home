@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: dnsutils
-  namespace: selfhosted
+  namespace: media
 spec:
   containers:
   - name: dnsutils
@@ -12,3 +12,4 @@ spec:
       - "infinity"
     imagePullPolicy: IfNotPresent
   restartPolicy: Always
+  dnsPolicy: ClusterFirst

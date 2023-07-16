@@ -48,12 +48,12 @@ spec:
             # NodelocalDNS IP
             - 10.43.0.10
             options:
-            - name: timeout
-              value: "1"
+            # - name: timeout
+            #   value: "1"
             - name: ndots
-              value: "3"
-            - name: attempts
-              value: "1"
+              value: "4"
+            # - name: attempts
+            #   value: "1"
             searches:
             - cluster.local
             - svc.cluster.local

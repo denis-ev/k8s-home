@@ -50,7 +50,8 @@ spec:
         patchStrategicMerge:
           metadata:
             annotations:
-              +(cert-manager.io/cluster-issuer): "letsencrypt-production"
+              # +(cert-manager.io/cluster-issuer): "letsencrypt-production"
+              +(cert-manager.io/cluster-issuer): "letsencrypt-staging"
               +(nginx.ingress.kubernetes.io/force-ssl-redirect): "true"
 
     - name: internal

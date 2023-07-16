@@ -104,7 +104,7 @@ spec:
         existingClaim: qbittorrent-config-pvc
       nfs-nas-media:
         enabled: true
-        existingClaim: media-nfs-share-pvc
+        existingClaim: media-nfs-share-pvc-vpn
         mountPath: /media
         readOnly: false
 

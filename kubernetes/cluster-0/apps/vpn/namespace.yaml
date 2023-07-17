@@ -5,4 +5,3 @@ metadata:
   name: vpn
   labels:
     secret.home.arpa/postgres-superuser: "true"
-    routed-gateway: "true"

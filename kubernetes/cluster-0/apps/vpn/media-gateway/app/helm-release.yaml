@@ -33,10 +33,6 @@ spec:
         env:
           - name: VPN_SERVICE_PROVIDER
             value: protonvpn
-          - name: VPN_PORT_FORWARDING_PROVIDER
-            value: protonvpn
-          - name: VPN_PORT_FORWARDING
-            value: "on"
           - name: OPENVPN_USER
             valueFrom:
               secretKeyRef:

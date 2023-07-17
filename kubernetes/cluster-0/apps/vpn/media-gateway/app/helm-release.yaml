@@ -32,36 +32,26 @@ spec:
           tag: v3.35.0@sha256:a98d1ec99e09a1b806aff7f0c3d8a133a8ede7d3d7a250b62029a39a61f01525
         env:
           - name: VPN_SERVICE_PROVIDER
-            value: custom
-          - name: VPN_TYPE
-            value: wireguard
-          - name: VPN_INTERFACE
-            value: wg0
-          - name: VPN_ENDPOINT_IP
+            value: protonvpn
+          - name: VPN_PORT_FORWARDING_PROVIDER
+            value: protonvpn
+          - name: VPN_PORT_FORWARDING
+            value: "on"
+          - name: OPENVPN_USER
             valueFrom:
               secretKeyRef:
                 name: media-gateway-vpnconfig
-                key: VPN_ENDPOINT_IP
-          - name: VPN_ENDPOINT_PORT
+                key: OPENVPN_USER
+          - name: OPENVPN_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: media-gateway-vpnconfig
-                key: VPN_ENDPOINT_PORT
-          - name: WIREGUARD_PUBLIC_KEY
+                key: OPENVPN_PASSWORD
+          - name: SERVER_COUNTRIES
             valueFrom:
               secretKeyRef:
                 name: media-gateway-vpnconfig
-                key: WIREGUARD_PUBLIC_KEY
-          - name: WIREGUARD_PRIVATE_KEY
-            valueFrom:
-              secretKeyRef:
-                name: media-gateway-vpnconfig
-                key: WIREGUARD_PRIVATE_KEY
-          - name: WIREGUARD_ADDRESSES
-            valueFrom:
-              secretKeyRef:
-                name: media-gateway-vpnconfig
-                key: WIREGUARD_ADDRESSES
+                key: SERVER_COUNTRIES
         securityContext:
           capabilities:
             add:

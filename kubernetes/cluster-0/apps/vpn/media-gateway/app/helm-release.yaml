@@ -69,8 +69,8 @@ spec:
           - type: tcp
             port: 61144
 
-    # routed_namespaces:
-    #   - media
+    routed_namespaces:
+      - vpn
 
     settings:
       VPN_BLOCK_OTHER_TRAFFIC: true

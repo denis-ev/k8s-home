@@ -29,7 +29,7 @@ spec:
         type: gluetun
         image:
           repository: ghcr.io/qdm12/gluetun
-          tag: latest@sha256:ec453b9496d37d6f0a58415aeaac29d8670c55df26569dacd04fd4e3637cf69e
+          tag: latest@sha256:27bc888cfd1c35762e9b891a22f60f5280e05c428aa01f18b47a9968f97ce272
         env:
           - name: VPN_SERVICE_PROVIDER
             value: protonvpn

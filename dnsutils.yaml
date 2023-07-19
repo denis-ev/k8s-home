@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: dnsutils2
+  name: dnsutils
   namespace: media
 spec:
   containers:

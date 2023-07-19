@@ -42,9 +42,9 @@ spec:
       VPN_OUTPUT_PORTS: &port-bt 61144
       DEBUG: true
       WEBUI_PORT: &port 80
-      UMASK: 000
-      PUID: 568
-      PGID: 568
+      # UMASK: 000
+      # PUID: 568
+      # PGID: 568
 
     dnsConfig:
       options:
@@ -111,6 +111,7 @@ spec:
       config:
         enabled: true
         existingClaim: qbittorrent-config-pvc
+        mountPath: /config
       config-wireguard:
         enabled: true
         type: configMap
@@ -121,7 +122,7 @@ spec:
       nfs-nas-media:
         enabled: true
         existingClaim: media-nfs-share-pvc
-        mountPath: /media
+        mountPath: /data
         readOnly: false
 
     resources:

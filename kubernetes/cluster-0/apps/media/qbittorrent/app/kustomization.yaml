@@ -5,3 +5,9 @@ resources:
   # - ./backup
   - ./config-pvc.yaml
   - ./helm-release.yaml
+# configMapGenerator:
+#   - name: wireguard-config
+#     files:
+#       - ./qbittorrent-CH-DE-1.conf
+# generatorOptions:
+#   disableNameSuffixHash: true

@@ -11,3 +11,5 @@ kubeconfig
 *.key
 # Ansible
 xanmanning.k3s*
+kubernetes/cluster-0/apps/media/qbittorrent/app/*.conf
+!kubernetes/cluster-0/apps/media/qbittorrent/app/*.sops.conf

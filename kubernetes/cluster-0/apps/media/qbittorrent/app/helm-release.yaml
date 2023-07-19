@@ -23,18 +23,28 @@ spec:
     remediation:
       retries: 5
 
-  dependsOn:
-    - name: media-gateway
-      namespace: vpn
-
   values:
     image:
-      repository: ghcr.io/onedr0p/qbittorrent
-      tag: 4.5.4@sha256:f0a74313d750bc437ba2ad34f3412de5ab9a978f3f5b74227a1bda69271fef3e
+      repository: ghcr.io/binhex/arch-qbittorrentvpn:4.5.4-1-03
+      tag: 4.5.4-1-03@sha256:9eb51d833c1fbed0556e9ce7d1d1680338e9446f86c9e4169d5f63887be63c00
 
     env:
-      QBITTORRENT__PORT: &port 80
-      QBITTORRENT__BT_PORT: &port-bt 61144
+      VPN_ENABLED: "yes"
+      # VPN_USER=<vpn username>
+      # VPN_PASS=<vpn password>
+      # VPN_PROV=<pia|airvpn|protonvpn|custom>
+      # VPN_CLIENT=<openvpn|wireguard>
+      STRICT_PORT_FORWARD: "yes"
+      ENABLE_PRIVOXY: "yes" # kubectl port-forward {pod} 8118:8118 -n media
+      LAN_NETWORK: 10.0.0.0/8
+      NAME_SERVERS: 1.1.1.1,1.0.0.1
+      # VPN_INPUT_PORTS: &port-bt 61144
+      VPN_OUTPUT_PORTS: &port-bt 61144
+      DEBUG: true
+      WEBUI_PORT: &port 80
+      UMASK: 000
+      PUID: 568
+      PGID: 568
 
     dnsConfig:
       options:
@@ -45,7 +55,6 @@ spec:
       automaticPortSetup: false
 
     podAnnotations:
-      setGateway: "true"
       kyverno.io/ignore: "true"
 
     hostname: qbittorrent
@@ -102,6 +111,13 @@ spec:
       config:
         enabled: true
         existingClaim: qbittorrent-config-pvc
+      config-wireguard:
+        enabled: true
+        type: configMap
+        name: wireguard-config
+        subPath: qbittorrent-CH-DE-1.conf
+        mountPath: /config/wireguard/vpn.conf
+        readOnly: true
       nfs-nas-media:
         enabled: true
         existingClaim: media-nfs-share-pvc

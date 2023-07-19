@@ -6,6 +6,7 @@ resources:
   # - ./backup
   - ./config-pvc.yaml
   - ./helm-release.yaml
+  - ./secret.sops.yaml
 # configMapGenerator:
 #   - name: wireguard-config
 #     files:

@@ -25,7 +25,7 @@ spec:
 
   values:
     image:
-      repository: ghcr.io/binhex/arch-qbittorrentvpn:4.5.4-1-03
+      repository: ghcr.io/binhex/arch-qbittorrentvpn
       tag: 4.5.4-1-03@sha256:9eb51d833c1fbed0556e9ce7d1d1680338e9446f86c9e4169d5f63887be63c00
 
     env:

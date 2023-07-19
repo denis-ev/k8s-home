@@ -115,7 +115,7 @@ spec:
         enabled: true
         type: configMap
         name: wireguard-config
-        # subPath: qbittorrent-CH-DE-1.conf
+        subPath: qbittorrent-CH-DE-1.conf
         mountPath: /config/wireguard/vpn.conf
         readOnly: true
       nfs-nas-media:

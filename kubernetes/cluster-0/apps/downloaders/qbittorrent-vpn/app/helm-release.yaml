@@ -52,7 +52,7 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: internal
+        ingressClassName: nginx
         annotations:
           ingress.home.arpa/type: "external-auth"
           nginx.ingress.kubernetes.io/configuration-snippet: |
@@ -64,7 +64,7 @@ spec:
             sub_filter_once on;
           hajimager.io/icon: mdi:download
         hosts:
-          - host: &host "qb-vpn.${SECRET_DOMAIN}"
+          - host: &host "qb.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix

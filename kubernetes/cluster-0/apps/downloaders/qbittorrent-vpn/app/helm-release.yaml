@@ -92,5 +92,5 @@ spec:
         enabled: true
         type: nfs
         server: "truenas.perth.labcloud.cc"
-        path: /mnt/Data/media
-        mountPath: /media
+        path: /mnt/Data/media/download
+        mountPath: /downloads

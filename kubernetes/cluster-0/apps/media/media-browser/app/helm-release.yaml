@@ -75,7 +75,7 @@ spec:
         existingClaim: media-browser-config-pvc
       nfs-nas-media:
         enabled: true
-        existingClaim: media-nfs-share-pvc
+        existingClaim: media-browser-nfs
         mountPath: /data
         readOnly: false
 

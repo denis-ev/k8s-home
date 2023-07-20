@@ -8,11 +8,11 @@ spec:
   interval: 15m
   chart:
     spec:
-      chart: app-template
-      version: 1.5.1
+      chart: qbittorrent-vpn
+      version: 1.0.1
       sourceRef:
         kind: HelmRepository
-        name: bjw-s
+        name: denis-ev
         namespace: flux-system
 
   install:
@@ -24,80 +24,118 @@ spec:
       retries: 5
 
   values:
-    image:
-      repository: ghcr.io/binhex/arch-qbittorrentvpn
-      tag: 4.5.4-1-03@sha256:9eb51d833c1fbed0556e9ce7d1d1680338e9446f86c9e4169d5f63887be63c00
+    hostname: qbittorrent
 
-    env:
-      VPN_ENABLED: "yes"
-      # VPN_USER=<vpn username>
-      # VPN_PASS=<vpn password>
-      # VPN_PROV=<pia|airvpn|protonvpn|custom>
-      # VPN_CLIENT=<openvpn|wireguard>
-      STRICT_PORT_FORWARD: "yes"
-      ENABLE_PRIVOXY: "yes" # kubectl port-forward {pod} 8118:8118 -n media
-      LAN_NETWORK: 10.0.0.0/8
-      NAME_SERVERS: 1.1.1.1,1.0.0.1
-      # VPN_INPUT_PORTS: &port-bt 61144
-      VPN_OUTPUT_PORTS: &port-bt 61144
-      DEBUG: true
-      WEBUI_PORT: &port 80
-      # UMASK: 000
-      # PUID: 568
-      # PGID: 568
+    image:
+      registry: ghcr.io
+      repository: denis-ev/qbittorent-vpn
+      tag: v1.0.9@sha256:d25600dc23a2ec161c164b5aa76f396f33d7005deb107cc9b5f8a5fa3e6b041f
+      # Specify a imagePullPolicy
+      # Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
+      # ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images
+      #
+      pullPolicy: IfNotPresent
 
     dnsConfig:
+      nameservers:
+        - 1.1.1.1
+        - 1.0.0.1
       options:
         - name: ndots
           value: "1"
 
-    settings:
-      automaticPortSetup: false
+    vpn:
+      # For VPN_ENABLED environment variable
+      enabled: true
+      # Attach your .ovpn configuration file here
+      config: "ch-de-01.protonvpn.net.udp.ovpn"
+      credentials:
+        # For VPN_USERNAME environment variable
+        username:
+          valueFrom:
+            secretKeyRef:
+              name: qbittorrent-secret
+              key: VPN_USERNAME
+        # For VPN_PASSWORD environment variable
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: qbittorrent-secret
+              key: VPN_PASSWORD
 
-    podAnnotations:
-      kyverno.io/ignore: "true"
+      # VPN provider. Currently only supports Private Internet Access (pia)
+      provider: custom
+      # LAN subnet that includes all worker nodes' podCIDR. Leave as default would work in most cases.
+      # # LAN_NETWORK environment variable
+      lanNetwork: "10.0.0.0/8"
 
-    hostname: qbittorrent
+    # Port qBittorrent UI listens on
+    # ref: https://github.com/trankchung/qbittorrent/tree/master/docker#environment-variables
+    # For WEBUI_PORT_ENV environment variable
+    uiPort: 8080
 
+    # Kubernetes configuration
+    # For minikube, set this to NodePort, elsewhere use LoadBalancer
+    #
     service:
-      main:
-        ports:
-          http:
-            port: *port
-      bittorrent:
-        enabled: true
-        type: LoadBalancer
-        loadBalancerIP: "10.1.99.101"
-        ports:
-          bittorrent:
-            enabled: true
-            port: *port-bt
-            protocol: TCP
-            targetPort: *port-bt
-        externalTrafficPolicy: Local
+      # ClusterIP, LoadBalancer, or NodePort
+      type: LoadBalancer
+      # HTTP Port
+      port: 8080
+      loadBalancerIP: "10.1.99.101"
+      #
+      # nodePort: <to set explicitly, choose port between 30000-32767>
+      nodePort: ""
+      #
+      # Enable client source IP preservation
+      # ref http://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#preserving-the-client-source-ip
+      #
+      externalTrafficPolicy: Cluster
+      # Service annotations done as key:value pairs
+      annotations: {}
 
+    # Enable persistence using Persistent Volume Claims
+    # ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
+    #
+    persistence:
+      data:
+        enabled: true
+        accessMode: ReadWriteOnce
+        existingClaim: qbittorrent-config-pvc
+      nfs-nas-media:
+        enabled: true
+        existingClaim: media-nfs-share-pvc
+        mountPath: /data
+        readOnly: false
+
+    # Configure the ingress resource that allows you to access the
+    # ref: http://kubernetes.io/docs/user-guide/ingress/
+    #
     ingress:
-      main:
-        enabled: true
-        ingressClassName: "nginx"
-        annotations:
-          ingress.home.arpa/type: "external-auth"
-          nginx.ingress.kubernetes.io/configuration-snippet: |
-            proxy_hide_header "x-webkit-csp";
-            proxy_hide_header "content-security-policy";
-            proxy_hide_header "X-Frame-Options";
-            proxy_set_header Accept-Encoding "";
-            sub_filter '</head>' '<link rel="stylesheet" type="text/css" href="https://theme-park.${SECRET_DOMAIN}/css/base/qbittorrent/nord.css"></head>';
-            sub_filter_once on;
+      enabled: true
+      ingressClassName: "nginx"
+      annotations:
+        ingress.home.arpa/type: "external-auth"
+        nginx.ingress.kubernetes.io/configuration-snippet: |
+          proxy_hide_header "x-webkit-csp";
+          proxy_hide_header "content-security-policy";
+          proxy_hide_header "X-Frame-Options";
+          proxy_set_header Accept-Encoding "";
+          sub_filter '</head>' '<link rel="stylesheet" type="text/css" href="https://theme-park.${SECRET_DOMAIN}/css/base/qbittorrent/nord.css"></head>';
+          sub_filter_once on;
 
-        hosts:
-          - host: &host "qb.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - *host
+      hosts:
+        - host: &host "qb.${SECRET_DOMAIN}"
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - hosts:
+            - *host
+
+    # Extra environtment variables to append to deployment
+    # ref: https://github.com/trankchung/qbittorrent/tree/master/docker#environment-variables
+    extraEnvVars: {}
 
     podSecurityContext:
       runAsUser: 568
@@ -106,28 +144,3 @@ spec:
       fsGroupChangePolicy: "OnRootMismatch"
       supplementalGroups:
         - 100
-
-    persistence:
-      config:
-        enabled: true
-        existingClaim: qbittorrent-config-pvc
-        mountPath: /config
-      config-wireguard:
-        enabled: true
-        type: configMap
-        name: wireguard-config
-        subPath: qbittorrent-CH-DE-1.conf
-        mountPath: /config/wireguard/vpn.conf
-        readOnly: true
-      nfs-nas-media:
-        enabled: true
-        existingClaim: media-nfs-share-pvc
-        mountPath: /data
-        readOnly: false
-
-    resources:
-      requests:
-        memory: 250Mi
-        cpu: 500m
-      limits:
-        memory: 6000Mi

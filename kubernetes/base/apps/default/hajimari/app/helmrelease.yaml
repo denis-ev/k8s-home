@@ -43,6 +43,7 @@ spec:
       namespaceSelector:
         matchNames:
           - default
+          - downloaders
           - flux-system
           - kube-system
           - media

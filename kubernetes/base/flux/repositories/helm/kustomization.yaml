@@ -10,6 +10,7 @@ resources:
   - ./coredns.yaml
   - ./cloudnative-pg.yaml
   - ./csi-driver-nfs.yaml
+  - ./denis-ev.yaml
   - ./external-dns.yaml
   - ./grafana.yaml
   - ./hajimari.yaml

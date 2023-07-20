@@ -9,7 +9,7 @@ spec:
   dependsOn:
     - name: cluster-0-apps-vpn-pod-gateway
     # - name: cluster-apps-rook-ceph-cluster
-  path: ./cluster-0/apps/downloaders/qbittorrent-vpn/app
+  path: ./kubernetes/cluster-0/apps/downloaders/qbittorrent-vpn/app
   prune: true
   sourceRef:
     kind: GitRepository

@@ -29,6 +29,7 @@ spec:
     controller:
       type: cronjob
       annotations:
+        # https://trakt.docs.apiary.io/#reference/authentication-devices/device-code/generate-new-device-codes?console=1
         secret.reloader.stakater.com/reload: &secret plex-mm-secret
       cronjob:
         schedule: 0 */6 * * *

@@ -32,8 +32,8 @@ spec:
         # https://trakt.docs.apiary.io/#reference/authentication-devices/device-code/generate-new-device-codes?console=1
         secret.reloader.stakater.com/reload: &secret plex-mm-secret
       cronjob:
-        schedule: "*/5 * * * *" # DEBUG run every 5 min
-        # schedule: 0 */6 * * *
+        # schedule: "*/5 * * * *" # DEBUG run every 5 min
+        schedule: 0 */6 * * *
     image:
       repository: docker.io/meisnate12/plex-meta-manager
       tag: v1.19.0

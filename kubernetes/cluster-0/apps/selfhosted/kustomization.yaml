@@ -7,7 +7,7 @@ resources:
   # - ./excalidraw/ks.yaml
   # - ./gitea/ks.yaml
   # - ./miniflux/ks.yaml
-  # - ./n8n/ks.yaml #
+  - ./n8n/ks.yaml
   # - ./obsidian-couchdb/ks.yaml #
   # - ./paperless/ks.yaml
   # - ./shlink/ks.yaml
